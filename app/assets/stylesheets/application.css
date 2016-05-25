@@ -11,5 +11,16 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require css/materialize.min
  *= require_self
  */
+
+/*
+.healthcare{ background: #EE6E73;}
+.nasa{ background: #1A5DAD;}
+.open-source{ background: #3DA639;}
+*/
+
+.healthcare{ background: #EE6E73;}
+.nasa{ background: #1A5DAD;}
+.open-source{ background: #66bb6a;}

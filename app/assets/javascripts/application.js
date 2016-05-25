@@ -13,4 +13,32 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require masonry.pkgd.min
+//= require js/materialize.min
 //= require_tree .
+
+
+// if(false)
+$.getScript('//platform.twitter.com/widgets.js', function(){
+  twttr.ready(function (twttr) {
+    twttr.events.bind('rendered',function (event) {
+
+      var $el = $(event.target);
+      $el.css({display: 'inline-block'});
+
+    });
+
+    twttr.events.bind('loaded',function (event) {
+      console.log('loaded');
+
+      $('.grid').masonry({
+        // options
+        itemSelector: '.twitter-tweet',
+        // fitWidth: true,
+        columnWidth: 510
+      });
+
+    });
+
+  });
+});
