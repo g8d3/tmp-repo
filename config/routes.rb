@@ -1,4 +1,14 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
+  root 'welcome#index'
+  resources :tweets do
+    collection do
+      get :ten_latest
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

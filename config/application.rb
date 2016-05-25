@@ -22,5 +22,11 @@ module TenLatestTweets
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Use sidetiq which does not have active job instructions
+    # and simply including sidetiq in job class did not work
+    # config.active_job.queue_adapter = :sidekiq
+
+    config.autoload_paths += %W(#{Rails.root}/app/jobs)
   end
 end
