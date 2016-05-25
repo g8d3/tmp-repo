@@ -53,3 +53,4 @@ gem 'pry-rails'
 gem 'sidekiq'
 gem 'sidetiq'
 gem 'sinatra', :require => nil
+gem 'quiet_assets'
