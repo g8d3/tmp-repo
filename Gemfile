@@ -47,3 +47,9 @@ end
 
 gem 'twitter'
 gem 'figaro'
+gem 'inherited_resources'
+gem 'slim-rails'
+gem 'pry-rails'
+gem 'sidekiq'
+gem 'sidetiq'
+gem 'sinatra', :require => nil
