@@ -18,9 +18,9 @@
 //= require_tree .
 
 
-// if(false)
 $.getScript('//platform.twitter.com/widgets.js', function(){
   twttr.ready(function (twttr) {
+
     twttr.events.bind('rendered',function (event) {
 
       var $el = $(event.target);
@@ -28,15 +28,19 @@ $.getScript('//platform.twitter.com/widgets.js', function(){
 
     });
 
-    twttr.events.bind('loaded',function (event) {
-      console.log('loaded');
 
-      $('.grid').masonry({
-        // options
-        itemSelector: '.twitter-tweet',
-        // fitWidth: true,
-        columnWidth: 510
-      });
+    twttr.events.bind('loaded',function (event) {
+
+      setGrid = function (colWidth,fitWidth) {
+        $('.grid').masonry({
+          // options
+          itemSelector: '.twitter-tweet',
+          fitWidth: fitWidth,
+          columnWidth: colWidth
+        });
+      };
+
+      setGrid(510, true);
 
     });
 

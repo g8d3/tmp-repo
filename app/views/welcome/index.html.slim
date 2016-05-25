@@ -1,0 +1,25 @@
+.navbar-fixed
+  nav.teal
+    .nav-wrapper
+      ul#nav-mobile.right.hide-on-med-and-down
+        li
+          a href="#healthcare" Healthcare
+        li
+          a href="#nasa" NASA
+        li
+          a href="#open-source" Open Source
+
+.grey.lighten-3
+  - Tweet.ten_latest.each do |topic, oembeds|
+
+    / Put anchor above card
+    div id=topic.parameterize
+    br
+    
+    .card class=topic.parameterize
+      .card-content
+        h1.tl-title
+          = "#{topic.titleize} Stories"
+        .grid
+          - oembeds.each do |oembed|
+            == oembed.html

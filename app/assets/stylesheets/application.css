@@ -24,3 +24,12 @@
 .healthcare{ background: #EE6E73;}
 .nasa{ background: #1A5DAD;}
 .open-source{ background: #66bb6a;}
+
+.grid{
+  margin: auto;
+}
+
+.tl-title{
+  color: rgba(255, 255, 255, 0.901961);
+  text-align:center;
+ }

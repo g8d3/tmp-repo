@@ -5,10 +5,12 @@ class CacheTweetsJob # < ActiveJob::Base
   include Sidetiq::Schedulable
 
   recurrence do
-    secondly(75)
+    # API limit for search is 180 per 15 minutes, one each 5 seconds.
+    secondly(20)
   end
 
+
   def perform
-    Rails.cache.write :ten_latest_tweets, Tweet.ten_latest!
+    Tweet.ten_latest!
   end
 end

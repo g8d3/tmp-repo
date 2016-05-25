@@ -3,24 +3,42 @@ class Tweet < ActiveRecord::Base
   def self.ten_latest
     # cache is set by ActiveJob with ten_latest!
     # fetch is used to set cache the first time even when user could wait
-    Rails.cache.fetch(:ten_latest_tweets) do
-      CacheTweetsJob.perform_async
-      ten_latest!
-    end
+    Rails.cache.read(:ten_latest_tweets)
+  end
+
+  def self.ten_latest!
+    Rails.cache.write :ten_latest_tweets, ten_latest_hash
+  end
+
+  # Output:
+  # {
+  #   'healthcare'  => [oembed1, ...],
+  #   'nasa'        => [oembed2, ...],
+  #   'open source' => [oembed3, ...],
+  # }
+  def self.ten_latest_hash
+    Hash[ten_latest_array]
   end
 
   # Output:
   # [
-  #   ['u1: healthcare1','u2: healthcare2', ...]
-  #   ['u3: nasa1','u4: nasa2', ...]
-  #   ['u5: os1','u6: os2', ...]
+  #   ['healthcare', [oembed1, ...]],
+  #   ['nasa', [oembed2, ...]],
+  #   ['open source', [oembed3, ...]],
   # ]
-  def self.ten_latest!
+  def self.ten_latest_array
     topics.map do |topic|
-      twitter.search(topic, result_type: "recent").take(10).map do |tweet|
-        "#{tweet.user.screen_name}: #{tweet.text}"
-      end
+      ids = ten_latest_ids topic
+
+      oembeds = twitter.oembeds ids, omit_script: true
+
+      [topic, oembeds]
     end
+  end
+
+  # Output: [1,2,3,4]
+  def self.ten_latest_ids(query)
+    twitter.search(query, result_type: "recent").take(10).map &:id
   end
 
   def self.topics
