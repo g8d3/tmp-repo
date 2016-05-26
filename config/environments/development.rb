@@ -38,4 +38,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Test redis connection in local
+  # Comment to skip redis and use filestore
+  config.cache_store = :redis_store, 'redis://localhost:6379'
 end
