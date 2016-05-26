@@ -13,42 +13,29 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require masonry.pkgd.min
+//= require twitter_widgets
 //= require js/materialize.min
 //= require_tree .
 
 
-$.getScript('//platform.twitter.com/widgets.js', function(){
-  twttr.ready(function (twttr) {
+twttr.ready(function (twttr) {
 
-    twttr.events.bind('rendered',function (event) {
+  twttr.events.bind('rendered',function (event) {
 
-      var $el = $(event.target);
-      $el.css({ display: 'inline-block' });
-
-    });
-
-
-    twttr.events.bind('loaded',function (event) {
-
-      setGrid = function (colWidth,fitWidth) {
-        $('.grid').masonry({
-          // options
-          itemSelector: '.twitter-tweet',
-          fitWidth: fitWidth,
-          columnWidth: colWidth
-        });
-      };
-
-
-      setTimeout(function () {
-        $('.twitter-tweet-error').hide()
-        setGrid(510, true);
-      }, 1500)
-
-      $('.grid>*').fadeIn();
-
-    });
+    var $el = $(event.target);
+    $el.css({ display: 'inline-block' });
 
   });
+});
+
+$(function () {
+
+    $('a').click(function (e) {
+      e.preventDefault();
+      var href = $(e.target).attr('href');
+      var offset = $('nav').height() - 2;
+
+      $("html, body").animate({ scrollTop: $(href).offset().top - offset }, 500);
+    });
+
 });

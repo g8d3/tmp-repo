@@ -1,6 +1,8 @@
 .navbar-fixed
-  nav.teal
+  nav.black
     .nav-wrapper
+      | &emsp;
+      a.brand-logo href='#' 10 Latest Tweets
       ul#nav-mobile.right.hide-on-med-and-down
         li
           a href="#healthcare" Healthcare
@@ -9,17 +11,25 @@
         li
           a href="#open-source" Open Source
 
-.grey.lighten-3
+#preloader
+  .preloader-wrapper.big.active
+    .spinner-layer.spinner-blue-only
+      .circle-clipper.left
+        .circle
+      .gap-patch
+        .circle
+      .circle-clipper.right
+        .circle
+
+
+.grids
   - Tweet.ten_latest.each do |topic, oembeds|
 
-    / Put anchor above card
-    div id=topic.parameterize
-    br
-    
-    .card class=topic.parameterize
+    .card id=topic.parameterize
       .card-content
         h1.tl-title
           = "#{topic.titleize} Stories"
         .grid
           - oembeds.each do |oembed|
             == oembed.html
+              
