@@ -21,56 +21,14 @@
 .open-source{ background: #3DA639;}
 */
 
-#healthcare{ background: #eeeeee;}
-#healthcare .tl-title{ color: black;}
-#nasa{ background: #1A5DAD;}
-#open-source{ background: #66bb6a;}
 
-#healthcare, #nasa, #open-source{
-  margin-top: 0;
-  margin-bottom: 0;
+
+/*
+.rotate:not(.stop) {
+  animation: rotation 2s infinite ease-in-out;
 }
-
-.grid{
-  text-align: center;
-  column-count: 2;
-  column-gap: 0;
+@keyframes rotation {
+    from {transform: rotate(0deg);}
+    to   {transform: rotate(359deg);}
 }
-
-/* Use one column for less than 480 px */
-@media only screen
-and (max-device-width: 480px){
-  .grid{
-    column-count: 1;
-  }
-
-}
-
-.tl-title{
-  color: rgba(255, 255, 255, 0.901961);
-  text-align:center;
- }
-
-.grid>*{
-  display: none;
-}
-
-.grids, .tl-title{
-  animation: fadein 2s;
-}
-
-.grid>*{
-  animation: fadein 2s;
-}
-
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-#preloader{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+*/
