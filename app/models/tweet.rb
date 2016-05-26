@@ -44,4 +44,15 @@ class Tweet < ActiveRecord::Base
   def self.topics
     ['healthcare', 'nasa', 'open source']
   end
+
+  # Debug method
+  def self.api_limits
+    twitter.get 'https://api.twitter.com/1.1/application' +
+      '/rate_limit_status.json?resources=help,users,search,statuses,oembed'
+  end
+
+  # Debug method
+  def self.search_api_limits
+    api_limits[:resources][:search]
+  end
 end

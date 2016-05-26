@@ -24,7 +24,7 @@ $.getScript('//platform.twitter.com/widgets.js', function(){
     twttr.events.bind('rendered',function (event) {
 
       var $el = $(event.target);
-      $el.css({display: 'inline-block'});
+      $el.css({ display: 'inline-block' });
 
     });
 
@@ -40,7 +40,13 @@ $.getScript('//platform.twitter.com/widgets.js', function(){
         });
       };
 
-      setGrid(510, true);
+
+      setTimeout(function () {
+        $('.twitter-tweet-error').hide()
+        setGrid(510, true);
+      }, 1500)
+
+      $('.grid>*').fadeIn();
 
     });
 
