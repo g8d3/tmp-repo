@@ -3,11 +3,11 @@ README
 
 This README document steps necessary to get the application up and running.
 
-* Ruby version
+# Ruby version
 
 2.3.0p0
 
-* System dependencies
+# System dependencies
 
 `bundle` to install all gems.
 
@@ -19,15 +19,15 @@ sudo apt-get install -y libpq-dev
 
 Install Redis and run it. See http://redis.io/topics/quickstart.
 
-* Database creation and initialization
+# Database creation and initialization
 
 `rake db:create db:migrate`
 
-* How to run the test suite
+# How to run the test suite
 
 `rake test`
 
-* Deployment instructions
+# Deployment instructions
 
 1. Create a Heroku application with `heroku create name_of_your_app`
 
@@ -47,8 +47,3 @@ set at `config/application.yml`.
 More about figaro at https://github.com/laserlemon/figaro.
 
 1. `git push heroku master` to upload code to Heroku.
-
-# TODO
-
-- define tweet columns to save
-- define way of visualizing tweets
