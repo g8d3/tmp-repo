@@ -21,7 +21,8 @@ class TweetsControllerTest < ActionController::TestCase
       post :create, tweet: { html: @tweet.html }
     end
 
-    assert_redirected_to tweet_path(assigns(:tweet))
+    # assert_redirected_to tweet_path(assigns(:tweet))
+    assert_redirected_to tweets_path
   end
 
   test "should show tweet" do
@@ -36,7 +37,8 @@ class TweetsControllerTest < ActionController::TestCase
 
   test "should update tweet" do
     patch :update, id: @tweet, tweet: { html: @tweet.html }
-    assert_redirected_to tweet_path(assigns(:tweet))
+    # assert_redirected_to tweet_path(assigns(:tweet))
+    assert_redirected_to tweets_path
   end
 
   test "should destroy tweet" do
