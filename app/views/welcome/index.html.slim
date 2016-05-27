@@ -24,8 +24,19 @@
         .circle
 
 
-.grids
-  - Tweet.ten_latest.each do |topic, oembeds|
+.grids ng-controller='GridsCtrl'
+
+  / Client side with Angular
+  .card(id='{{category | dasherize}}' ng-repeat='(category, oembeds) in data'
+    repeat-done='renderTwitter()')
+    .card-content
+      h1.tl-title
+        | {{category | titleize}} Stories
+      .grid
+        span ng-repeat='oembed in oembeds' ng-bind-html='oembed.html | unescape'
+
+  / Server side
+  /- Tweet.ten_latest.each do |topic, oembeds|
 
     .card id=topic.parameterize
       .card-content
@@ -34,4 +45,3 @@
         .grid
           - oembeds.each do |oembed|
             == oembed.html
-              

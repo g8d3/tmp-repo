@@ -1,8 +1,6 @@
 class Tweet < ActiveRecord::Base
 
   def self.ten_latest
-    # cache is set by ActiveJob with ten_latest!
-    # fetch is used to set cache the first time even when user could wait
     Rails.cache.read(:ten_latest_tweets)
   end
 
