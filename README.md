@@ -33,8 +33,8 @@ Install Redis and run it. See http://redis.io/topics/quickstart.
 
 1. From Heroku web interface you can configure these add ons:
 
-- PostgreSQL
-- Redis
+    - PostgreSQL
+    - Redis
 
 1. Create a Twitter application at https://apps.twitter.com/.
 
@@ -44,6 +44,6 @@ Install Redis and run it. See http://redis.io/topics/quickstart.
 1. To set ENV variables use `figaro heroku:set -e production`. Variables are
 set at `config/application.yml`.
 
-More about figaro at https://github.com/laserlemon/figaro.
+  More about figaro at https://github.com/laserlemon/figaro.
 
 1. `git push heroku master` to upload code to Heroku.
