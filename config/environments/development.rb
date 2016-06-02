@@ -41,5 +41,8 @@ Rails.application.configure do
 
   # Test redis connection in local
   # Comment to skip redis and use filestore
-  config.cache_store = :redis_store, 'redis://localhost:6379'
+  # Docker
+  config.cache_store = :redis_store, ENV['CACHE_URL']
+  # No Docker
+  # config.cache_store = :redis_store, 'redis://localhost:6379'
 end

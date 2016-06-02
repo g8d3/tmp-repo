@@ -13,3 +13,4 @@
 /tmp
 
 config/application.yml
+.vagrant

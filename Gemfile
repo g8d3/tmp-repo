@@ -56,3 +56,4 @@ gem 'sinatra', :require => nil
 gem 'quiet_assets'
 gem 'rails_12factor'
 gem 'redis-rails'
+gem 'active_record_union'

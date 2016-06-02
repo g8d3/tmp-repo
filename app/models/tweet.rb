@@ -4,8 +4,30 @@ class Tweet < ActiveRecord::Base
     Rails.cache.read(:ten_latest_tweets)
   end
 
-  def self.ten_latest!
+  def self.ten_latest!(save = true)
     Rails.cache.write :ten_latest_tweets, ten_latest_hash
+    # WIP save to DB
+    # save_ten_latest(ten_latest) if save
+    ten_latest
+  end
+
+  def self.save_ten_latest(ten_latest_hash)
+    ten_latest_hash.each do |topic, oembeds|
+      oembeds.each do |oembed|
+        create html: oembed.html, topic: topic
+      end
+    end
+  end
+
+  def self.ten_latest_from_db
+    order('created_at desc').where(topic: topics[0]).limit(10)
+    .union( order('created_at desc').where(topic: topics[1]).limit(10) )
+    .union( order('created_at desc').where(topic: topics[2]).limit(10) )
+  end
+
+  def self.ten_latest_from_db!
+    Rails.cache.write :ten_latest_tweets, ten_latest_from_db
+    ten_latest_from_db
   end
 
   # Output:

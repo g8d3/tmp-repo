@@ -20,9 +20,15 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  # No Docker
   host: localhost
   username: postgres
   password: postgres
+
+  # Docker
+  # host: db
+  # username: postgres
+  # password: postgres
 
 development:
   <<: *default

@@ -27,6 +27,19 @@ Install Redis and run it. See http://redis.io/topics/quickstart.
 
 `rake test`
 
+# Run with Vagrant
+
+`vagrant up` will take a good time the first time.
+
+After VM is running `vagrant ssh` and run these commands:
+
+```shell
+cd /vagrant
+rails s -b 0.0.0.0
+sidekiq
+redis-server
+```
+
 # Deployment instructions
 
 1. Create a Heroku application with `heroku create name_of_your_app`
