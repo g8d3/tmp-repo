@@ -31,13 +31,27 @@ Install Redis and run it. See http://redis.io/topics/quickstart.
 
 `vagrant up` will take a good time the first time.
 
-After VM is running `vagrant ssh` and run these commands:
+After VM is running.
+
+Run `vagrant ssh` and run Rails server with:
 
 ```shell
 cd /vagrant
 rails s -b 0.0.0.0
-sidekiq
+```
+
+Run `vagrant ssh` and run Redis with:
+
+```shell
+cd /vagrant
 redis-server
+```
+
+Run `vagrant ssh` and run Sidekiq with:
+
+```shell
+cd /vagrant
+sidekiq
 ```
 
 # Deployment instructions
