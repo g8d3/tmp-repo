@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :tweets do
     collection do
-      get :ten_latest
+      get  :ten_latest
+      post :tweet
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

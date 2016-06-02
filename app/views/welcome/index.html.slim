@@ -12,6 +12,27 @@
           a href="#nasa" NASA
         li
           a href="#open-source" Open Source
+        li.tweet-button
+          a(class="twitter-share-button"
+          href="https://twitter.com/intent/tweet"
+          data-text="Check this awesome site"
+          data-size="large")
+            | Tweet
+          / a.grey.waves-effect.waves-light.btn.modal-trigger href="#new-tweet"
+            i.tiny.material-icons mode_edit
+
+
+/! Modal Structure
+#new-tweet.modal ng-controller='TweetCtrl'
+  .modal-content
+    h4 Share what you are thinking
+    form ng-submit='tweet()'
+      input name='message' ng-model='formData.message'
+
+  .modal-footer
+    a.modal-action.modal-close.waves-effect.waves-green.btn-flat ng-click='tweet()'
+     | Post now
+
 
 #preloader
   .preloader-wrapper.big.active
@@ -34,6 +55,7 @@
         | {{category | titleize}} Stories
       .grid
         span ng-repeat='oembed in oembeds' ng-bind-html='oembed.html | unescape'
+
 
   / Server side
   /- Tweet.ten_latest.each do |topic, oembeds|

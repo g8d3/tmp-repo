@@ -7,4 +7,6 @@ app
 
       $scope.renderTwitter = ->
         $timeout((->twttr.widgets.load()), 0)
+
+
   ]

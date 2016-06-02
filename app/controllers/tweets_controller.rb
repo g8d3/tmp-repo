@@ -5,6 +5,10 @@ class TweetsController < InheritedResources::Base
     render json: Tweet.ten_latest
   end
 
+  def tweet
+    render json: twitter.update(params[:message])
+  end
+
   private
 
     # redirect to collection_url instead

@@ -26,4 +26,11 @@
 
 
 window.app = angular.module('app', ['ngInflection'])
+  .config([
+    "$httpProvider", ($httpProvider) ->
+      csrfToken = $('meta[name=csrf-token]').attr('content')
+
+      $httpProvider.defaults.headers.common['X-CSRF-Token'] = csrfToken
+  ])
+
 # angular.module('app', ['Restangular', 'app.controllers', 'app.models'])
