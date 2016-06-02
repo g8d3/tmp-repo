@@ -3,37 +3,13 @@ README
 
 This README document steps necessary to get the application up and running.
 
-# Ruby version
-
-2.3.0p0
-
-# System dependencies
-
-`bundle` to install all gems.
-
-Some dev libraries might be required to install some gems:
-
-```
-sudo apt-get install -y libpq-dev
-```
-
-Install Redis and run it. See http://redis.io/topics/quickstart.
-
-# Database creation and initialization
-
-`rake db:create db:migrate`
-
-# How to run the test suite
-
-`rake test`
-
 # Run with Vagrant
 
-`vagrant up` will take a good time the first time.
+You need to install Vagrant and VirtualBox.
 
-After VM is running.
+Then run `vagrant up` will take a good time the first time.
 
-Run `vagrant ssh` and run Rails server with:
+After VM is running. Run `vagrant ssh` and run Rails server with:
 
 ```shell
 cd /vagrant
