@@ -7,23 +7,26 @@ This README document steps necessary to get the application up and running.
 
 You need to install Vagrant and VirtualBox.
 
-Then run `vagrant up` will take a good time the first time.
+Then run `vagrant up`. It will take a good time the first time.
 
-After VM is running. Run `vagrant ssh` and run Rails server with:
+After virtual machine(VM) is running run `vagrant ssh` to connect to it.
+
+Then install dependencies, setup database and run Rails server with:
 
 ```shell
 cd /vagrant
+bundle
+rake db:setup
 rails s -b 0.0.0.0
 ```
 
-Run `vagrant ssh` and run Redis with:
+On another terminal run `vagrant ssh` and run Redis inside VM with:
 
 ```shell
-cd /vagrant
 redis-server
 ```
 
-Run `vagrant ssh` and run Sidekiq with:
+On another terminal run `vagrant ssh` and run Sidekiq inside VM with:
 
 ```shell
 cd /vagrant
