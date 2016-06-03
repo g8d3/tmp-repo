@@ -57,6 +57,21 @@
         span ng-repeat='oembed in oembeds' ng-bind-html='oembed.html | unescape'
 
 
+  / Client side with Ractive
+  #ractive
+  script id='ractive-template' type='text/ractive'
+    | {{#tweetsByCategory:category}}
+    .card id="{{S(category).dasherize().s}}"
+      .card-content
+        h1.tl-title
+          | {{S(category).titleCase().s}} Stories
+        .grid
+          | {{#.}}
+          | {{{html}}}
+          | {{/}}
+
+    | {{/}}
+
   / Server side
   /- Tweet.ten_latest.each do |topic, oembeds|
 

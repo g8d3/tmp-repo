@@ -14,3 +14,4 @@
 
 config/application.yml
 .vagrant
+dump.rdb
