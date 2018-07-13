@@ -50,6 +50,6 @@ sidekiq
 1. To set ENV variables use `figaro heroku:set -e production`. Variables are
 set at `config/application.yml`.
 
-  More about figaro at https://github.com/laserlemon/figaro.
+    More about figaro at https://github.com/laserlemon/figaro.
 
 1. `git push heroku master` to upload code to Heroku.
